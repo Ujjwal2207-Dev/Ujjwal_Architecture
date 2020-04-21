@@ -1,0 +1,37 @@
+Syntax for displaying data:
+{{.}},dot is the data i.e. current value of the data at that particular
+point of time.
+
+<<<<<<<<<<<THIS IS main.go FILE>>>>>>>>>>
+package main
+import (
+"fmt"
+"log"
+"os"
+"text/template"
+)
+var tpl *template.Template>>>>NEED TO UNDERSTAND THE MEANING OF THIS.
+
+func init() {
+ tpl= template.Must(template.ParseGlob("templates/*))
+}
+func main() {
+err := tpl.ExecuteTemplate(os.Stdout,"tpl.gohtml", 42)
+if err != nil{
+      log.Fatalln(err)
+}
+
+<<<<<<<<<<tpl.gohtml>>>>>>>>>>> contains
+        <!DOCTYPE html>
+        <html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hello World!</tite>
+</head>
+<body>
+<h1>The meaning of life: {{.}}</h1>
+</body>
+</html>
+
+--->We can only pass a piece of data,but fortunately
+we can pass a piece of data which is an aggregate data.
